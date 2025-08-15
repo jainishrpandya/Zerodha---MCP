@@ -63,14 +63,6 @@ npm install
 
 Create a `.env` file in the project root:
 
-```bash
-# Create .env file
-echo ZERODHA_API_KEY=your_api_key_here > .env
-echo ZERODHA_API_SECRET=your_api_secret_here >> .env
-echo ZERODHA_REQUEST_TOKEN=your_request_token_here >> .env
-echo ZERODHA_ACCESS_TOKEN=your_access_token_here >> .env
-```
-
 **Example .env file (with placeholder values):**
 ```env
 ZERODHA_API_KEY=your_actual_api_key_here
