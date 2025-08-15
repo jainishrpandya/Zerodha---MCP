@@ -9,36 +9,6 @@ const server = new McpServer({
   version: "1.0.0"
 });
 
-// Add an addition tool
-server.registerTool("add-numbers",
-  {
-    title: "Addition Tool",
-    description: "Add two numbers",
-    inputSchema: { a: z.number(), b: z.number() }
-  },
-  async ({ a, b }) => ({
-    content: [{ type: "text", text: String(a + b) }]
-  })
-);
-
-// Add an addition tool
-server.registerTool("factorial-number",
-  {
-    title: "Addition Tool",
-    description: "Add two numbers",
-    inputSchema: { a: z.number() }
-  },
-  async ({ a }) => {
-    let ans = 1;
-    for (let i = 1; i <= a; i++) {
-      ans *= i;
-    }
-    return {
-      content: [{ type: "text", text: String(ans) }]
-    }
-  }
-);
-
 server.registerTool("buy-stock",
   {
     title: "Buy a stock",
