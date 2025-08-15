@@ -6,7 +6,7 @@ A Model Context Protocol (MCP) server that provides trading tools for Zerodha AP
 
 - 🚀 **Buy/Sell Stock Orders** - Place market orders for stocks
 - 👤 **User Profile Management** - Get Zerodha account details
-- 🧮 **Basic Math Operations** - Addition and factorial calculations
+
 - 🔐 **Secure Credential Management** - Environment variables for API keys
 - 🤖 **Claude Desktop Integration** - Seamless AI-powered trading
 
@@ -41,8 +41,8 @@ npm install
 
 #### 3.2 Get API Key and Secret
 1. In your application dashboard, note down:
-   - **API Key** (e.g., `xxxxxxxxxxxxxxx`)
-   - **API Secret** (e.g., `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx`)
+   - **API Key** (e.g., `your_api_key_here`)
+   - **API Secret** (e.g., `your_api_secret_here`)
 
 #### 3.3 Generate Request Token
 1. Use the login URL: `https://kite.zerodha.com/connect/login?api_key=YOUR_API_KEY&v=3`
@@ -88,9 +88,6 @@ npm run build
 ### Step 6: Test the Server
 
 ```bash
-# Test environment variables
-npx ts-node src/test-env.ts
-
 # Test profile retrieval
 npx ts-node -e "import { getProfile } from './src/trade'; getProfile().then(console.log).catch(console.error)"
 ```
@@ -111,9 +108,9 @@ npx ts-node -e "import { getProfile } from './src/trade'; getProfile().then(cons
 {
     "mcpServers": {
         "trade": {
-            "command": "C:\\Program Files\\nodejs\\node.exe",
+            "command": "C:\\absolute-path-to-your-project\\node.exe",
             "args": [
-                "D:\\Projects\\Zerodha - MCP\\dist\\index.js"
+                "C:\\absolute-path-to-your-project\\dist\\index.js"
             ]
         }
     }
@@ -121,7 +118,7 @@ npx ts-node -e "import { getProfile } from './src/trade'; getProfile().then(cons
 ```
 
 **Important:** Update the path to match your project location:
-- Replace `D:\\Projects\\Zerodha - MCP\\` with your actual project path
+- Replace `C:\\absolute-path-to-your-project\\` with your actual project path
 - Use double backslashes `\\` for Windows paths
 
 #### 7.3 Restart Claude Desktop
@@ -137,8 +134,6 @@ npx ts-node -e "import { getProfile } from './src/trade'; getProfile().then(cons
    - `buy-stock` - Place buy orders
    - `sell-stock` - Place sell orders
    - `get-profile` - Get user profile
-   - `add-numbers` - Basic addition
-   - `factorial-number` - Calculate factorial
 
 ## Available Tools
 
@@ -163,20 +158,7 @@ npx ts-node -e "import { getProfile } from './src/trade'; getProfile().then(cons
 - **Description:** Retrieve Zerodha account details
 - **Returns:** User profile information
 
-### Utility Tools
 
-#### Add Numbers
-- **Tool Name:** `add-numbers`
-- **Parameters:**
-  - `a` (number): First number
-  - `b` (number): Second number
-- **Example:** Add 5 + 3
-
-#### Factorial
-- **Tool Name:** `factorial-number`
-- **Parameters:**
-  - `a` (number): Number to calculate factorial
-- **Example:** Calculate factorial of 5
 
 ## Project Structure
 
@@ -185,8 +167,7 @@ zerodha-mcp-server/
 ├── src/
 │   ├── index.ts          # MCP server main file
 │   ├── trade.ts          # Trading functions
-│   ├── access.ts         # Token generation
-│   └── test-env.ts       # Environment testing
+│   └── access.ts         # Token generation
 ├── dist/                 # Compiled JavaScript
 ├── .env                  # Environment variables (not in repo)
 ├── .gitignore           # Git ignore rules
@@ -206,8 +187,7 @@ npm start
 # Development with auto-reload
 npm run dev
 
-# Test environment variables
-npx ts-node src/test-env.ts
+
 
 # Generate access token
 npx ts-node src/access.ts
